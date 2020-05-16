@@ -15,7 +15,6 @@ interface FSEntry {
   entity: string;
   code: string;
   elective: boolean;
-  selected: boolean;
   slotPaperStructures?: FSEntry[];
 }
 
@@ -31,15 +30,13 @@ export class AppComponent {
   defaultColumns = ['name', 'entity', 'code', 'elective'];
   allColumns = [this.customColumn, ...this.defaultColumns];
    debugger; 
-  source: NbTreeGridDataSource<parentEntry>;
-   debugger; 
-  constructor(dataSourceBuilder: NbTreeGridDataSourceBuilder<parentEntry>) {
-   
-    const getters: NbGetters<parentEntry, parentEntry> = {
+  source: NbTreeGridDataSource<FSEntry>;
+  constructor(dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+    const getters: NbGetters<FSEntry, FSEntry> = {
       dataGetter: 
-      (node: parentEntry["slotPaperStructureDTO"]) =>
+      (node:FSEntry) =>
        node,
-      childrenGetter: (node: parentEntry["slotPaperStructureDTO"]) => node.slotPaperStructureDTO.slotPaperStructures || undefined,
+      childrenGetter: (node:FSEntry) => node.slotPaperStructures || undefined,
       // expandedGetter: (node: FSEntry) => !!node.expanded,
     };
     this.source = dataSourceBuilder.create(this.datas, getters);
@@ -52,6 +49,7 @@ export class AppComponent {
     "key": 6,
     "slotName": "Extra Curricular Activities",
     "slotNumber": 6,
+    "slotElective":true,
     "slotPaperStructureDTO": {
       "entity": "PAPER",
       "name": null,
