@@ -1,31 +1,30 @@
 <nb-layout>
     <nb-layout-column>
      <nb-card>
+     <nb-card>
       <nb-card-body>
-
-        <table [nbTreeGrid]="data" equalColumnsWidth>
-
+        <table [nbTreeGrid]="source">
+          <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
           <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
-
           <ng-container [nbTreeGridColumnDef]="customColumn">
+            <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{customColumn}}</th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">
-
-              <nb-select placeholder="Closes immediately">
-                <nb-option value="1">First</nb-option>
-                <nb-option value="2">Second</nb-option>
-                <nb-option value="3">Third</nb-option>
-              </nb-select>
-
+              <nb-tree-grid-row-toggle
+                [expanded]="row.expanded">
+              </nb-tree-grid-row-toggle>
+              {{row.data.slotName }}
             </td>
           </ng-container>
 
           <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
-            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+            <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data.slotPaperStructureDTO[column]}}</td>
           </ng-container>
-
         </table>
 
       </nb-card-body>
+    </nb-card>
+  `,
     </nb-card>
     </nb-layout-column>
 </nb-layout>
