@@ -1,0 +1,31 @@
+<nb-layout>
+    <nb-layout-column>
+     <nb-card>
+      <nb-card-body>
+
+        <table [nbTreeGrid]="data" equalColumnsWidth>
+
+          <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+          <ng-container [nbTreeGridColumnDef]="customColumn">
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+
+              <nb-select placeholder="Closes immediately">
+                <nb-option value="1">First</nb-option>
+                <nb-option value="2">Second</nb-option>
+                <nb-option value="3">Third</nb-option>
+              </nb-select>
+
+            </td>
+          </ng-container>
+
+          <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+          </ng-container>
+
+        </table>
+
+      </nb-card-body>
+    </nb-card>
+    </nb-layout-column>
+</nb-layout>
