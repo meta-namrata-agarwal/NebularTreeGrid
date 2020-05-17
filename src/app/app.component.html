@@ -8,19 +8,21 @@
 					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
 
 					<ng-container [nbTreeGridColumnDef]="customColumn">
-						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{customColumn}}</th>
+						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef></th>
+						<!-- <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{customColumn}}</th> -->
+
 						<td nbTreeGridCell *nbTreeGridCellDef="let row">
 							<nb-tree-grid-row-toggle [expanded]="row.expanded" *ngIf="row.data.kind === 'dir'">
 							</nb-tree-grid-row-toggle>
-							{{row.data[customColumn]}}
+						{{row.data["name"]}} - {{row.data["code"]}} | {{row.data["entity"]}}
 
 						</td>
 					</ng-container>
 
-					<ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
+					<!-- <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
 						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef></th>
 						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data["name"]}} - {{row.data["code"]}} </td>
-					</ng-container>
+					</ng-container> -->
 				</table>
 
 			</nb-card-body>
