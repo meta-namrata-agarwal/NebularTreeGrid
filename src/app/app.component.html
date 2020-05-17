@@ -4,8 +4,6 @@
 			<nb-accordion-item>
 				<nb-accordion-item-header>{{item.slotName}}</nb-accordion-item-header>
 				<nb-accordion-item-body>
-					<nb-card>
-						<nb-card-body>
 							<table [nbTreeGrid]="source">
 								<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
 								<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
@@ -31,8 +29,6 @@
 					</ng-container> -->
 							</table>
 
-						</nb-card-body>
-					</nb-card>
 				</nb-accordion-item-body>
 			</nb-accordion-item>
 		</nb-accordion>
