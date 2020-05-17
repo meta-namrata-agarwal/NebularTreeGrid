@@ -41,7 +41,8 @@ export class AppComponent {
       childrenGetter: (node: FSEntry) => node.slotPaperStructures || undefined,
       expandedGetter: (node: FSEntry) => !!node.expanded,
     };
-    this.source = dataSourceBuilder.create(this.getChuldStructure(), getters);
+    // this.getChuldStructure(item);
+    this.source = dataSourceBuilder.create(this.test, getters);
     console.log(this.source);
   }
 
@@ -49,8 +50,11 @@ export class AppComponent {
     checked = !checked;
   }
 
-private getChuldStructure():any{
-  return this.mscDataWithParent[0].slotPaperStructureDTO.slotPaperStructures;
+test: FSEntry[] =[];
+private getChuldStructure(data:any):any{
+  this.test=data.slotPaperStructureDTO.slotPaperStructures;
+  console.log(this.test);
+  return;
 }
   datas: parentEntry[] = [{
     "key": 6,
@@ -928,13 +932,6 @@ private getChuldStructure():any{
       },
       "slotElective": true,
       "slotName": "Core Papers"
-    },
-    {
-      "key": 2121,
-      "slotNumber": 2,
-      "slotPaperStructureDTO": null,
-      "slotName": "COSD",
-      "slotElective": true,
     }
   ]
 

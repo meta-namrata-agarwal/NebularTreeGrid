@@ -2,7 +2,7 @@
 	<nb-layout-column>
 		<nb-accordion *ngFor="let item of mscDataWithParent">
 			<nb-accordion-item>
-				<nb-accordion-item-header>{{item.slotName}}</nb-accordion-item-header>
+				<nb-accordion-item-header>{{item.slotName}} {{getChuldStructure(item)}}</nb-accordion-item-header>
 				<nb-accordion-item-body>
 							<table [nbTreeGrid]="source">
 								<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
