@@ -6,7 +6,6 @@
 				<nb-accordion-item-body>
 					<nb-card>
 						<nb-card-body>
-
 							<table [nbTreeGrid]="source">
 								<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
 								<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
