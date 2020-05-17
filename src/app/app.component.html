@@ -6,16 +6,17 @@
 				<table [nbTreeGrid]="source">
 					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
 					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
-
 					<ng-container [nbTreeGridColumnDef]="customColumn">
 						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef></th>
 						<!-- <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{customColumn}}</th> -->
 
 						<td nbTreeGridCell *nbTreeGridCellDef="let row">
-							<nb-tree-grid-row-toggle [expanded]="row.expanded" *ngIf="row.data.kind === 'dir'">
+							<nb-tree-grid-row-toggle [expanded]="row.expanded" *ngIf="row.data.entity ==='PAPERSET' ">
+              
 							</nb-tree-grid-row-toggle>
-						{{row.data["name"]}} - {{row.data["code"]}} | {{row.data["entity"]}}
-
+							<nb-checkbox *ngIf="row.data['elective'] " (checkedChange)="toggle($event)"></nb-checkbox>
+							<strong  *ngIf="row.data['entity']=='PAPERSET' ">	{{row.data["name"]}} - {{row.data["code"]}} | {{row.data["entity"]}}</strong>
+							<span  *ngIf="row.data['entity']!='PAPERSET' ">{{row.data["name"]}} - {{row.data["code"]}} | {{row.data["entity"]}}</span>
 						</td>
 					</ng-container>
 
