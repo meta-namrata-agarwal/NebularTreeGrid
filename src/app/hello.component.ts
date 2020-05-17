@@ -26,20 +26,18 @@ interface FSEntry {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  customColumn = 'slotname';
-  defaultColumns = ['name', 'entity', 'code', 'elective'];
-  allColumns = [this.customColumn, ...this.defaultColumns];
-   debugger; 
+  customColumn = 'name';
+  defaultColumns = ['entity', 'code', 'elective'];
+ allColumns = [ this.customColumn, ...this.defaultColumns ];
   source: NbTreeGridDataSource<FSEntry>;
+
   constructor(dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
     const getters: NbGetters<FSEntry, FSEntry> = {
-      dataGetter: 
-      (node:FSEntry) =>
-       node,
-      childrenGetter: (node:FSEntry) => node.slotPaperStructures || undefined,
-      // expandedGetter: (node: FSEntry) => !!node.expanded,
+      dataGetter: (node: FSEntry) => node,
+      childrenGetter: (node: FSEntry) => node.slotPaperStructures || undefined,
+      expandedGetter: (node: FSEntry) => !!node.expanded,
     };
-    this.source = dataSourceBuilder.create(this.datas, getters);
+    this.source = dataSourceBuilder.create(this.dataAll, getters);
   }
 
   toggle(checked: boolean) {
@@ -88,5 +86,68 @@ export class AppComponent {
     }
   }]
 
-
+  dataAll: FSEntry[] =  [{
+    "entity": "PAPER",
+    "name": null,
+    "code": null,
+    "elective": true,
+    "slotPaperStructures": [
+      {
+        "entity": "PAPER",
+        "name": "HINDI",
+        "code": "FHI100",
+        "slotPaperStructures": [],
+        "elective": true
+      },
+      {
+        "entity": "PAPER",
+        "name": "FRENCH GRAMMAR, COMPREHENSION & PARAGRAPH WRITING",
+        "code": "FFR100",
+        "slotPaperStructures": [],
+        "elective": true
+      },
+      {
+        "entity": "PAPER",
+        "name": "GERMAN GRAMMAR, COMPREHENSION AND EXPRESSION",
+        "code": "FGR100",
+        "slotPaperStructures": [],
+        "elective": true
+      }
+    ]
+  },{
+    "entity": "PAPER",
+    "name": null,
+    "code": null,
+    "slotPaperStructures": [
+      {
+        "entity": "PAPER",
+        "name": "NCC-ACTIVITY",
+        "code": "ECA-NCC",
+        "slotPaperStructures": [],
+        "elective": true
+      },
+      {
+        "entity": "PAPER",
+        "name": "NSS-ACTIVITY",
+        "code": "ECA-NSS",
+        "slotPaperStructures": [],
+        "elective": true
+      },
+      {
+        "entity": "PAPER",
+        "name": "SPORTS",
+        "code": "ECA-SPORTS",
+        "slotPaperStructures": [],
+        "elective": true
+      },
+      {
+        "entity": "PAPER",
+        "name": "CULTURAL ACTIVITY",
+        "code": "ECA-CUA",
+        "slotPaperStructures": [],
+        "elective": true
+      }
+    ],
+    "elective": true
+  }]
 }
