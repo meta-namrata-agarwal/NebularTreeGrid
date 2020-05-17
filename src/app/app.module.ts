@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './hello.component';
-import { NbThemeModule, NbLayoutModule, NbButtonModule, NbAccordionModule, NbIconModule, NbTreeGridModule, NbCardModule, NbSelectModule ,NbCheckboxModule,} from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbAccordionModule, NbIconModule, NbTreeGridModule, NbCardModule, NbSelectModule ,NbCheckboxModule,NbAccordionModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 const routes: Routes = [
@@ -30,7 +30,8 @@ const routes: Routes = [
     NbAccordionModule, 
     NbIconModule, 
     NbEvaIconsModule,
-    NbCheckboxModule, ],
+    NbCheckboxModule, 
+    NbAccordionModule],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
