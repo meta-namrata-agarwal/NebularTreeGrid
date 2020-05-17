@@ -54,41 +54,76 @@ export class AppComponent {
     "slotName": "Extra Curricular Activities",
     "slotNumber": 6,
     "slotElective": true,
-    "slotPaperStructureDTO": {
+    "slotPaperStructureDTO":  {
       "entity": "PAPER",
+      "key": null,
       "name": null,
+      "minCount": 1,
+      "maxCount": 1,
       "code": null,
-      "elective": true,
+      "credits": null,
+      "paperCategory": null,
+      "paperProgramType": null,
+      "totalContactHours": null,
       "slotPaperStructures": [
         {
           "entity": "PAPER",
+          "key": 6753657907841295,
           "name": "NCC-ACTIVITY",
+          "minCount": null,
+          "maxCount": null,
           "code": "ECA-NCC",
+          "credits": 2.0,
+          "paperCategory": "NONE",
+          "paperProgramType": "UNDERGRADUATE",
+          "totalContactHours": null,
           "slotPaperStructures": [],
           "elective": true
         },
         {
           "entity": "PAPER",
+          "key": 6753657907841296,
           "name": "NSS-ACTIVITY",
+          "minCount": null,
+          "maxCount": null,
           "code": "ECA-NSS",
+          "credits": 2.0,
+          "paperCategory": "NONE",
+          "paperProgramType": "UNDERGRADUATE",
+          "totalContactHours": null,
           "slotPaperStructures": [],
           "elective": true
         },
         {
           "entity": "PAPER",
+          "key": 6753657907841321,
           "name": "SPORTS",
+          "minCount": null,
+          "maxCount": null,
           "code": "ECA-SPORTS",
+          "credits": 2.0,
+          "paperCategory": "NONE",
+          "paperProgramType": "UNDERGRADUATE",
+          "totalContactHours": null,
           "slotPaperStructures": [],
           "elective": true
         },
         {
           "entity": "PAPER",
+          "key": 6753657907841324,
           "name": "CULTURAL ACTIVITY",
+          "minCount": null,
+          "maxCount": null,
           "code": "ECA-CUA",
+          "credits": 2.0,
+          "paperCategory": "NONE",
+          "paperProgramType": "UNDERGRADUATE",
+          "totalContactHours": null,
           "slotPaperStructures": [],
           "elective": true
         }
       ],
+      "elective": true
     }
   }]
 
