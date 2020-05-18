@@ -42,7 +42,7 @@ export class AppComponent {
       expandedGetter: (node: FSEntry) => !!node.expanded,
     };
     // this.getChuldStructure(item);
-    this.source = dataSourceBuilder.create(this.test, getters);
+    this.source = dataSourceBuilder.create(this.mscData, getters);
     console.log(this.source);
   }
 
